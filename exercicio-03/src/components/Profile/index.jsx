@@ -4,13 +4,22 @@ import ProfileSection from "./ProfileSection"
 import styles from "./styles.module.css"
 
 export default function Profile(props) {
+  function handleClick(ev) {
+    console.log(ev)
+    alert(`Agora você está senguindo!`)
+  }
   return (
     <div className={styles.container}>
       <img className={styles.avatar} src={props.avatar} alt={props.name} />
       <Title>
         <span>Name: </span>
         {props.name}
-        <button>Follow</button>
+        <button
+        className={styles.followButton}
+        onClick={handleClick}
+        >
+          Follow
+        </button>
       </Title>
       <ProfileSection>{props.bio}</ProfileSection>
       <ProfileSection>{props.phone}</ProfileSection>
