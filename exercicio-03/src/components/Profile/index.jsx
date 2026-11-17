@@ -2,11 +2,15 @@ import LinkButton from "../LinkButton"
 import Title from "../Title"
 import ProfileSection from "./ProfileSection"
 import styles from "./styles.module.css"
+import { useState } from "react"
 
 export default function Profile(props) {
+  const [followText, setFollowText] = useState("Follow")
+
   function handleClick(ev) {
     console.log(ev)
     alert(`Agora você está senguindo!`)
+    setFollowText("Following")
   }
   return (
     <div className={styles.container}>
@@ -18,7 +22,7 @@ export default function Profile(props) {
         className={styles.followButton}
         onClick={handleClick}
         >
-          Follow
+          {followText}
         </button>
       </Title>
       <ProfileSection>{props.bio}</ProfileSection>
